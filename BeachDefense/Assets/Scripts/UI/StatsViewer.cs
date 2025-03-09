@@ -23,6 +23,10 @@ namespace UI
         public void OnSetStats(int weapon)
         {
             var amount = manager.obstacles[weapon].maxCount - manager.obstacles[weapon].currentCount -1;
+            if (amount == -1)
+            {
+                amount = 0;
+            }
             nameTmp.text = "Name: " + obstacle[weapon].name;
             descriptionTmp.text = "Description: " + obstacle[weapon].description;
             amountTmp.text = amount + " Left";

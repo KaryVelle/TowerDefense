@@ -17,6 +17,7 @@ namespace Managers
       [Header("Other Settings")]
       public List<GameObject> allEnemies;
       public int towerCount;
+      [SerializeField] private AudioSource winSfx;
     
          
       public delegate void StartWaves(int waveCount);
@@ -129,7 +130,7 @@ namespace Managers
          {
             Win();
          }
-         
+         winSfx.Play();
          if (timeOfWaves.Count <= waveCount) return;
          _timer.ResetTimer(timeOfWaves[waveCount]);
       }

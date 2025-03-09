@@ -35,6 +35,8 @@ namespace Managers
         
         private ObstacleManager _obstacleManager;
         private Timer _timer;
+        [SerializeField] private AudioSource sfx;
+        [SerializeField] private AudioSource rotSfx;
 
         private void Awake()
         {
@@ -135,6 +137,7 @@ namespace Managers
             var newYRotation = _rotationIndex * 90f; 
             _actualRotation = Quaternion.Euler(0, newYRotation, 0);
             _previewObject.transform.rotation = _actualRotation;
+            rotSfx.Play();
         }
 
         /// <summary>
@@ -158,6 +161,7 @@ namespace Managers
             Destroy(_previewObject);
             _previewObject = null;
             _actualRotation = Quaternion.Euler(0, 0, 0);
+            sfx.Play();
         }
     }
 }
